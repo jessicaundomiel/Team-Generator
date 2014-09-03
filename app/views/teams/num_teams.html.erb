@@ -1,0 +1,17 @@
+<tr>
+
+  <td align="center">
+
+   <%= form_tag("/teams/assigned_teams", method: "get") do %>
+
+    <%= label_tag(:num, "how many teams?") %>
+
+    <%= text_field_tag(:num) %>
+
+    <%= submit_tag("Go") %>
+
+   <% end %>
+
+  </td>
+
+ </tr>

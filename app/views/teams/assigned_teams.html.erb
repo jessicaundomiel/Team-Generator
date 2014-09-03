@@ -1,0 +1,59 @@
+<% if params[:num] != nil && @teams != nil %>
+
+  <tr>  
+
+  <td align="center" colspan="2"><h1>New Team List</h1></td>
+
+  </tr>
+
+  <% @teams.each_with_index do |team, index| %>
+
+  <tr>
+
+    <td width="120" class="left_label">Team <%= index+1 %>: </td>
+
+    <td class="team_list"> <%= team.join(", ") %></td>
+
+  </tr>
+
+<% end %>
+
+ <tr>
+
+   <td height="80" colspan="2">
+
+    <div class="green-btn reset-btn">
+
+      <a href="/teams/num_teams">Reset Teams</a>
+
+    </div>
+
+    <div class="green-btn shuffle">
+
+    <!-- pass same parameter that was passed from num_teams view -->
+
+      <%= link_to 'Shuffle Teams', teams_assigned_teams_path(num: params[:num]) %>
+
+    </div>
+
+    <div class="green-btn save_btn">
+
+      <%= link_to "Save Teams", teams_path(teams: @teams) %>
+
+     </div>
+
+   </td>
+
+ <% else %>
+
+   <td align="center">You must enter 1 or more for number of teams.</td>
+
+   <td><div class="green-btn save_btn">
+
+     <a href="/teams/num_teams">Reset Teams</a>
+
+   </div></td>
+
+ <% end %>
+
+</tr>
